@@ -16,16 +16,20 @@ Route::get('/', function () {
 });
 
 Route::group(['prefix' => 'admin'], function() {
-    Route::get('news/create', 'Admin\NewsController@add');
+    Route::get('news/create', 'Admin\NewsController@add')->middleware('auth');
     
     // 課題4-1. admin/profile/create にアクセスしたら ProfileController の add Actionに
-    Route::get('profile/create', 'Admin\ProfileController@add');
+    // 課題12-2. ログインしていない状態でadmin/profile/createにアクセスしたらログイン画面にリダイレクトされるように設定
+    Route::get('profile/create', 'Admin\ProfileController@add')->middleware('auth');
     
     // 課題4-2.admin/profile/edit にアクセスしたら ProfileController の edit Action に
-    Route::get('profile/edit', 'Admin\ProfileController@edit');
+     // 課題12-3. ログインしていない状態でadmin/profile/editにアクセスしたらログイン画面にリダイレクトされるように設定
+    Route::get('profile/edit', 'Admin\ProfileController@edit')->middleware('auth');
     
 });
 
-// 課題3. 「http://XXXXXX.jp/XXX というアクセスが来たときに、 AAAControllerのbbbというAction に渡すRoutingの設定」
-Route::get('XXX', 'XXX\AAAController@bbb');
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
