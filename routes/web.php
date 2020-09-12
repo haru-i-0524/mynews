@@ -15,16 +15,23 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::group(['prefix' => 'admin'], function() {
-    Route::get('news/create', 'Admin\NewsController@add')->middleware('auth');
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
+    Route::get('news/create', 'Admin\NewsController@add');
+    // 追記　(PHP/Laravel 13)
+    Route::post('news/create', 'Admin\NewsController@create');
     
-    // 課題4-1. admin/profile/create にアクセスしたら ProfileController の add Actionに
-    // 課題12-2. ログインしていない状態でadmin/profile/createにアクセスしたらログイン画面にリダイレクトされるように設定
-    Route::get('profile/create', 'Admin\ProfileController@add')->middleware('auth');
     
-    // 課題4-2.admin/profile/edit にアクセスしたら ProfileController の edit Action に
-     // 課題12-3. ログインしていない状態でadmin/profile/editにアクセスしたらログイン画面にリダイレクトされるように設定
-    Route::get('profile/edit', 'Admin\ProfileController@edit')->middleware('auth');
+    Route::get('profile/create', 'Admin\ProfileController@add');
+    
+    // 課題13‐3 admin/profile/create に postメソッドでアクセスしたら ProfileController の create Action に割り当てるように設定
+    Route::post('profile/create', 'Admin\ProfileController@create');
+    
+    
+    
+    Route::get('profile/edit', 'Admin\ProfileController@edit');
+    
+    // 課題13‐6 admin/profile/edit に postメソッドでアクセスしたら ProfileController の update Action に割り当てるように設定
+    Route::post('profile/edit', 'Admin\ProfileController@update');
     
 });
 
