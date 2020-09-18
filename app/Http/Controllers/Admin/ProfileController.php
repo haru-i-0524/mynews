@@ -13,8 +13,25 @@ class ProfileController extends Controller
         return view('admin.profile.create');
     }
     // createを追加
-    public function create()
+    // 課題13‐3　admin/profile/createにリダイレクトするように
+    public function create(Request $request)
     {
+    
+        // 課題14-5
+        // Varidationを行う
+        $this->validate($request, Profile::$rules);
+        
+        $profile = new Profile;
+        $form = $request->all();
+        
+        //フォームから送信されてきた_tokenを削除する 
+        unset($form['_token']);
+        
+        // データベースに保存する
+        $profile->fill($form);
+        $profile->save();
+        
+        
         return redirect('admin/profile/create');
     }
     // editを追加
