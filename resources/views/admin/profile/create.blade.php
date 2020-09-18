@@ -23,7 +23,7 @@
                     
                     <!-- 氏名(name) -->
                     <div class="form-group row">
-                        <label class="col-md-2">{{ __('messages.Name') }}</label>
+                        <label class="col-md-2">名前</label>
                         
                         <div class="col-md-10">
                             <input type="text" class="form-control" name="name" value="{{ old('name') }}">
@@ -33,21 +33,21 @@
                     
                     <!-- 性別(gender) -->
                     <div class="form-group row">
-                        <label class="col-md-2">{{ __('messages.Gender') }}</label>
+                        <label class="col-md-2">性別</label>
                         
                         <div class="col-md-2">    
-                            <input type="radio" name="gender" value="male">{{ __('messages.Male') }}
+                            <input type="radio" name="gender" value="male">男性
                        
                        </div>
                        <div class="col-md-2">    
-                            <input type="radio" name="gender" value="female">{{ __('messages.Female') }}
+                            <input type="radio" name="gender" value="female">女性
                        
                        </div>
                     </div>
                     
                     <!-- 趣味(hobby) -->
                     <div class="form-group row">
-                        <label class="col-md-2">{{ __('messages.Hobby') }}</label>
+                        <label class="col-md-2">趣味</label>
                         
                         <div class="col-md-10">
                             <textarea class="form-control" name="hobby" rows='10'></textarea>
@@ -56,7 +56,7 @@
                     
                     <!-- 自己紹介(introduction) -->
                     <div class="form-group row">
-                        <label class="col-md-2">{{ __('messages.Introduction') }}</label>
+                        <label class="col-md-2">自己紹介</label>
                         
                         <div class="col-md-10">
                             <textarea class="form-control" name="introduction" rows='10'></textarea>
