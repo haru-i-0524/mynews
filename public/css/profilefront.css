@@ -1,0 +1,41 @@
+body {
+  color: #000;
+}
+
+.header .logo {
+  width: 120px;
+  height: 82px;
+}
+
+.headline .date {
+  font-size: 0.6em;
+  color: #999999;
+}
+
+.headline .title {
+  color: #000000;
+  font-size: 1.6em;
+  font-weight: bold;
+}
+
+.headline .body h1 {
+  color: #000000;
+  font-size: 1.6em;
+}
+
+.posts .post .date {
+  font-size: 0.6em;
+  color: #999999;
+}
+
+.posts .post .title {
+  color: #000000;
+  font-size: 1.6em;
+  font-weight: bold;
+}
+
+.posts .post .body h1 {
+  color: #000000;
+  font-size: 1.6em;
+}
+
